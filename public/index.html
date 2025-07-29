@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiscoFetch - Spotify Discography Fetcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>🎵 DiscoFetch</h1>
+                <p>Spotify Discography Fetcher</p>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="input-section">
+                <div class="form-card">
+                    <h2>Fetch Artist Discography</h2>
+                    <p class="description">
+                        Enter a Spotify artist URL to get their complete discography including albums, singles, compilations, and features.
+                    </p>
+                    
+                    <form id="discographyForm" class="form">
+                        <div class="input-group">
+                            <label for="artistUrl">Spotify Artist URL</label>
+                            <input 
+                                type="url" 
+                                id="artistUrl" 
+                                name="artistUrl" 
+                                placeholder="https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR"
+                                required
+                            >
+                            <small class="help-text">
+                                Example: https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR
+                            </small>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" id="fetchBtn">
+                            <span class="btn-text">Fetch Discography</span>
+                            <div class="spinner" id="spinner"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="artist-info" id="artistInfo"></div>
+                <div class="discography-tabs">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="albums">Albums</button>
+                        <button class="tab" data-tab="singles">Singles</button>
+                        <button class="tab" data-tab="compilations">Compilations</button>
+                        <button class="tab" data-tab="appears_on">Appears On</button>
+                    </div>
+                    <div class="tab-content" id="tabContent"></div>
+                </div>
+                
+                <div class="export-section">
+                    <button class="btn-secondary" id="exportJsonBtn">Export as JSON</button>
+                    <button class="btn-secondary" id="exportCsvBtn">Export as CSV (Catalog)</button>
+                    <button class="btn-secondary" id="copyJsonBtn">Copy JSON to Clipboard</button>
+                </div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card">
+                    <h3>Error</h3>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Built with ❤️ for music lovers | Powered by Spotify Web API</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
