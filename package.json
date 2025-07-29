@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Spotify Discography Fetcher - A modern web app to fetch complete artist discographies",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
